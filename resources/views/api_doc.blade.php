@@ -4,13 +4,13 @@
 
 @section('content')
 
-	<h2Olync API Documentation</h2>
+	<h2>Olync API Documentation</h2>
     <p>
         This is the documentation for the API for Olyn.
         Each Accordion below represents endpoints and clicking to expand shows more details about the endpoint.
         Details like the required fields, the JSON format for both request and the JSON format for response.<br>
         <p class="bg-danger text-white" style="padding: 5px;">
-        NB: Authenticated links takes the header [ key => Authorization and the value => token] 
+        NB: Authenticated links takes the header [ key => Authorization and the value => token]
         </p>
         <br>
 
@@ -45,6 +45,10 @@
     <p class="bg-success" style="padding: 4px;">
         <strong><span class="label label-success">Base URL:</span></strong> http://www.olync.net/olyncapi/api
     </p>
+
+
+
+		<!-- ending part -->
 
     <div class="card">
             <div class="card-header">
@@ -144,6 +148,44 @@
                 </pre>
             </div>
         </div>
+
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			  <div class="card">
+			    <div class="panel-heading" role="tab" id="headingOne">
+			      <p class="card-header">
+			        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								<span class="bg-primary text-white" style="padding: 3px;">POST</span>
+                /edit-username
+			        </a>
+			      </p>
+			    </div>
+			    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+			      <div class="card-body">
+							This endpoint makes it possible for you change the current user's username, if it is available.
+ 						 <hr>
+ 						 <strong>Request: </strong>
+ 						 <pre>
+ 						 <code>
+						 {
+								 "username" : "k_cam"
+						 }
+ 						 </code>
+ 						 </pre>
+ 						 <br>
+ 						 <strong>Response: </strong>
+ 						 <br>
+ 						 <pre>
+ 						 <code>
+ 						 {
+ 								 "status_code": 200,
+ 								 "message": "successful!!"
+ 						 }
+ 						 </code>
+ 						 </pre>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 
         <br>
         <div class="card">
