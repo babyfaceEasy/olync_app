@@ -149,6 +149,46 @@
             </div>
         </div>
 
+				<!-- start new post -->
+				<br>
+				<div class="card">
+            <div class="card-header">
+                <span class="bg-primary text-white" style="padding: 3px;">POST</span>
+                /new-post
+            </div>
+            <div class="card-body">
+                This endpoint makes it possible for you to find friends using username.<br>
+								<strong>To perform this operation, you must be authenticated.</strong>
+                <hr>
+                <table>
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                </table>
+                <strong>Request: </strong>
+                <pre>
+                <code>
+									{
+										"post": "string",
+										"img": "base 64 encoded data"
+									}
+                </code>
+                </pre>
+                <br>
+                <strong>Response: </strong>
+                <br>
+                <pre>
+                <code>
+									{
+	                    "message": "Post creation was succesful!",
+	                    "status_code": 200
+	                }
+                </code>
+                </pre>
+            </div>
+        </div>
+				<!-- end new post -->
+
 				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 			  <div class="card">
 			    <div class="panel-heading" role="tab" id="headingOne">

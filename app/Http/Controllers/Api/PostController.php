@@ -28,11 +28,11 @@ class PostController extends Controller
     //TODO: create a new post
     //TODO: get all likes on a post
     //TODO: get all comments on a post
-    
+
     /**
      * This is to create a new-post
-     * @param  Request $request 
-     * @return bolean true/false          
+     * @param  Request $request
+     * @return bolean true/false
      */
     public function newPost(Request $request)
     {
@@ -48,7 +48,7 @@ class PostController extends Controller
     	//check if file is available
     	if($request->hasFile('img') && $request->img->isValid()){
     		//if successful, $path = "jpvL79mdsZ4w1sD95XsWYKKtNlJfPu6QAgfgpjrC.jpeg"
-    		//here store first paremeter is null cos 'postPics' leads directly to the needed folder. 
+    		//here store first paremeter is null cos 'postPics' leads directly to the needed folder.
     		$path = $request->file('img')->store(null, 'postPics');
     	}
 
@@ -105,7 +105,7 @@ class PostController extends Controller
             return $state;
         });
 
-    	return $this->response->array($states->toArray())->setStatusCode(200);
+    	return $this->response->array($states)->setStatusCode(200);
     	//dd($states);
     }//end statePosts
 
@@ -121,7 +121,7 @@ class PostController extends Controller
             $checker = Like::where('user_id', $user->id)->where('post_id', $userPost->id)->count();
             $val = ($checker > 0 ) ? true : false;
             $userPost['liked'] = (bool)$val;
-            return $userPost; 
+            return $userPost;
         });
         //dd($userPosts);
     	$ret_val = ['data' => $userPosts->toArray(), 'status_code' => 200];
@@ -142,7 +142,7 @@ class PostController extends Controller
     		//it exists so remove and reduce post likes by 1
     		$delRows = Like::where('user_id', $user->id)->where('post_id', $post_id)->delete();
 
-            //this removes from the 
+            //this removes from the
             //Post::where('id', $post_id)->get()->decrement('likes');
             DB::table('posts')->whereId($post_id)->decrement('likes');
     	}else{
@@ -163,7 +163,7 @@ class PostController extends Controller
     {
     	$like_count = Like::where('post_id', $post_id)->count();
 
-    	return response()->json(['data' => $like_count, 'status_code' => 200]); 
+    	return response()->json(['data' => $like_count, 'status_code' => 200]);
     }
 
     //this is to get post pics
