@@ -100,7 +100,8 @@ return [
     |
     */
 
-    'ttl' => env('JWT_TTL', 3600),
+    //one year token life time
+    'ttl' => env('JWT_TTL', 525600),
     //'ttl' => env('JWT_TTL', 3600),
 
     /*
@@ -120,7 +121,8 @@ return [
     |
     */
 
-    'refresh_ttl' => env('JWT_REFRESH_TTL', 20160),
+    //three months before it can be refreshed 131400
+    'refresh_ttl' => env('JWT_REFRESH_TTL', 131400),
     //'refresh_ttl' => env('JWT_REFRESH_TTL', 20160),
 
     /*

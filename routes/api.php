@@ -34,6 +34,7 @@ $api->version('v1', function ($api) {
 		$api->post('/new-post', 'App\Http\Controllers\Api\PostController@newPost');
 		$api->get('/state-posts/{state_id?}', 'App\Http\Controllers\Api\PostController@statePosts');
 		$api->get('/user-posts', 'App\Http\Controllers\Api\PostController@userPosts');
+		//continue from here tomorrow
 		$api->get('/post-like/{post_id}', 'App\Http\Controllers\Api\PostController@postLike');
 		$api->get('/post-like/{post_id}/count', 'App\Http\Controllers\Api\PostController@getPostLikes');
 		$api->get('/post-image/{pic_name}', 'App\Http\Controllers\Api\PostController@getPostpic');
