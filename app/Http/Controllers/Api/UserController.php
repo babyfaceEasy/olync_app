@@ -15,6 +15,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Validator;
 use Image;
 use File;
+use Response;
 
 /**
  * This handles all that has to do with a user.
@@ -26,7 +27,7 @@ class UserController extends Controller
 
     /**
      * Returns the current user details
-     * @param  Request $request 
+     * @param  Request $request
      * @return JSONARRAY           An array consisting of the users list
      * @Get("/user-dets")
      */
@@ -38,7 +39,7 @@ class UserController extends Controller
     }
     //update user
     //change password
-    
+
     public function changePassword(Request $request)
     {
     	$validator = Validator::make($request->all(), [
@@ -57,7 +58,7 @@ class UserController extends Controller
 
     	//check if they mash
     	if(Hash::check($request->input('curPassword'), $user->password)){
-    		$user = User::find($user->id); 
+    		$user = User::find($user->id);
     		$user->password = Hash::make($request->input('newPassword'));
     		$user->save();
 
@@ -67,7 +68,7 @@ class UserController extends Controller
     				'message' => 'Your Old password doesn\'t match'
     			]
     		];
-    		throw new StoreResourceFailedException('Password Error', $response); 
+    		throw new StoreResourceFailedException('Password Error', $response);
     	}
 
     	$response = ['errors' => [
@@ -75,7 +76,7 @@ class UserController extends Controller
     		]
     	];
     	throw new StoreResourceFailedException('Password Creation Error', $response);
-    	
+
     }//end of changePassword
 
     public function updateUserInfo(Request $request)
@@ -141,7 +142,9 @@ class UserController extends Controller
 
     public function getUserByUsername($username)
     {
-    	$user = User::where('username', $username)->first();
+      //return response()->json(['status_code' => 200, 'data' => 'far-away']);
+      //dd($username);
+    	$user = User::where('username', '=', $username)->first();
 
     	return response()->json(['status_code' => 200, 'data' => $user->toArray()]);
     }
@@ -164,7 +167,7 @@ class UserController extends Controller
         //check if file is available
         if($request->hasFile('img') && $request->img->isValid()){
             //we would be saving the users profile pic wiv id.extension
-            //here store first paremeter is null cos 'postPics' leads directly to the needed folder. 
+            //here store first paremeter is null cos 'postPics' leads directly to the needed folder.
             //extension
             $ext = $request->file('img')->extension();
             $name = 'avatar_'.$user->id.".".$ext;
@@ -183,7 +186,7 @@ class UserController extends Controller
         }
     }//end of uploadProfilePic()
 
-    //this is to drop picture 
+    //this is to drop picture
     public function defaultProfilePic(Request $request)
     {
         //delete the current file as long as default.jpg
@@ -205,12 +208,12 @@ class UserController extends Controller
     public function getProfilePic($pic_name)
     {
         //return storage_path('public/profile_pics/' .$pic_name);
-        return Image::make(storage_path('public/profile_pics/' .$pic_name))->response();
+        return Image::make(storage_path('app/public/profile_pics/' .$pic_name))->response();
     }
 
     public function getProfilepic2($pic_name)
     {
-        $path = storage_path('public/profile_pics/' . $pic_name);
+        $path = storage_path('app/public/profile_pics/' . $pic_name);
 
         if (!File::exists($path)) {
             //abort(404);
@@ -235,7 +238,7 @@ class UserController extends Controller
             \Log::error($e);
             return $this->response->errorInternal('An error occured, please try again later.');
         }
-        
+
         return response()->json(['status_code' => 200, 'data' => $friends->toArray()]);
     }//end of searchFriendByUsername
 }//end of class

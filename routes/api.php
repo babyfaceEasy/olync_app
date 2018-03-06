@@ -19,6 +19,9 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
 	/*$api->get('/get-states', 'App\Http\Controllers\UtilController@getStates');
 	$api->post('/test-post', 'App\Http\Controllers\UtilController@testPost');*/
+	$api->get('/', function(){
+		return response()->json(['desc' => 'Welcome to the API section of Olync. Visit: "http://localhost:8080/olync_app/public/" for documentation.']);
+	});
 
 	//codes
 	$api->get('/states', 'App\Http\Controllers\Api\StateController@getAllStates')->name('get_all_states');
@@ -34,7 +37,6 @@ $api->version('v1', function ($api) {
 		$api->post('/new-post', 'App\Http\Controllers\Api\PostController@newPost');
 		$api->get('/state-posts/{state_id?}', 'App\Http\Controllers\Api\PostController@statePosts');
 		$api->get('/user-posts', 'App\Http\Controllers\Api\PostController@userPosts');
-		//continue from here tomorrow
 		$api->get('/post-like/{post_id}', 'App\Http\Controllers\Api\PostController@postLike');
 		$api->get('/post-like/{post_id}/count', 'App\Http\Controllers\Api\PostController@getPostLikes');
 		$api->get('/post-image/{pic_name}', 'App\Http\Controllers\Api\PostController@getPostpic');
@@ -47,7 +49,7 @@ $api->version('v1', function ($api) {
 		$api->post('/change-password', 'App\Http\Controllers\Api\UserController@changePassword');
 		$api->post('/update-info', 'App\Http\Controllers\Api\UserController@updateUserInfo');
 		$api->get('/user-info-username', 'App\Http\Controllers\Api\UserController@getUserByUsername');
-		$api->get('/user-profile/{pic_name}', 'App\Http\Controllers\Api\UserController@getProfilePic');
+		$api->get('/user-profile/{pic_name}', 'App\Http\Controllers\Api\UserController@getProfilepic2');
 		$api->get('/reset-profile-pic', 'App\Http\Controllers\Api\UserController@defaultProfilePic');
 		$api->post('/upload-profile-pic', 'App\Http\Controllers\Api\UserController@uploadProfilePic');
 		$api->get('/find-friends/{user?}', 'App\Http\Controllers\Api\UserController@searchFriendByUsername');

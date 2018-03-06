@@ -140,16 +140,16 @@
 
     <div id="accordion">
       <div class="card">
-        <div class="card-header" id="headingTwo">
+        <div class="card-header" id="headingA">
           <h5 class="mb-0">
             <div class="d-inline p-2 bg-primary text-white">POST</div>
-            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseA" aria-expanded="true" aria-controls="collapseOne">
               /login
             </button>
           </h5>
         </div>
 
-        <div id="collapseTwo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div id="collapseA" class="collapse" aria-labelledby="headingA" data-parent="#accordion">
           <div class="card-body">
             <p>
               This allows a corper to login into our application.
@@ -434,6 +434,251 @@
 }
 	            </pre>
 
+
+	          </div>
+	        </div>
+	      </div>
+
+				<div class="card">
+	        <div class="card-header" id="heading7">
+	          <h5 class="mb-0">
+							<div class="d-inline p-2 bg-success text-white">GET</div>
+	            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapseThree">
+	              /post-like/{post_id}
+	            </button>
+	          </h5>
+	        </div>
+	        <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordion">
+	          <div class="card-body">
+							<p>
+	              This allows a corper to like a specific post by ID (post_id)
+	            </p>
+
+							<h4>Request <hr> </h4>
+							<p>
+								The <i> <b>post_id:</b> </i> passed in the url.
+							</p>
+
+	            <h4>
+	              Response
+	              <hr>
+	            </h4>
+
+	            <pre>
+{
+  "message": "Action was successful!",
+  "status_code": 200
+}
+	            </pre>
+
+
+	          </div>
+	        </div>
+	      </div>
+
+
+				<div class="card">
+	        <div class="card-header" id="heading8">
+	          <h5 class="mb-0">
+							<div class="d-inline p-2 bg-success text-white">GET</div>
+	            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapseThree">
+	              /post-like/{post_id}/count
+	            </button>
+	          </h5>
+	        </div>
+	        <div id="collapse8" class="collapse" aria-labelledby="heading8" data-parent="#accordion">
+	          <div class="card-body">
+							<p>
+	              This returns the total number of likes for a particular post, after passing the POST ID
+	            </p>
+
+							<h4>Request <hr> </h4>
+							<p>
+								The <i> <b>post_id:</b> </i> passed in the url.
+							</p>
+
+	            <h4>
+	              Response
+	              <hr>
+	            </h4>
+
+	            <pre>
+{
+  "message": "Action was successful!",
+  "status_code": 200
+}
+	            </pre>
+
+
+	          </div>
+	        </div>
+	      </div>
+
+
+				<div class="card">
+	        <div class="card-header" id="heading9">
+	          <h5 class="mb-0">
+							<div class="d-inline p-2 bg-success text-white">GET</div>
+	            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapseThree">
+	              /post-image/{pic_name}
+	            </button>
+	          </h5>
+	        </div>
+	        <div id="collapse9" class="collapse" aria-labelledby="heading9" data-parent="#accordion">
+	          <div class="card-body">
+							<p>
+	              This returns the image of a the post.
+	            </p>
+
+							<h4>Request <hr> </h4>
+							<p>
+								The <i> <b>pic_name:</b> </i> passed in the url.
+							</p>
+
+	            <h4>
+	              Response
+	              <hr>
+	            </h4>
+								<p>
+									An <i> <b>image</b> </i> file.
+								</p>
+
+	          </div>
+	        </div>
+	      </div>
+
+				<div class="card">
+	        <div class="card-header" id="heading10">
+	          <h5 class="mb-0">
+	            <div class="d-inline p-2 bg-primary text-white">POST</div>
+	            <button class="btn btn-link" data-toggle="collapse" data-target="#collapse10" aria-expanded="true" aria-controls="collapseOne">
+	              /add-comment/{post_id}
+	            </button>
+	          </h5>
+	        </div>
+
+	        <div id="collapse10" class="collapse" aria-labelledby="heading10" data-parent="#accordion">
+	          <div class="card-body">
+	            <p>
+	              This allows the corper add a new comment to a post.
+	            </p>
+
+
+	            <h4>Request <hr> </h4>
+							<p>
+								The <i> <b>post_id:</b> </i> of the particular post.
+							</p>
+							<pre>
+{
+	"comment" : "The text you want to send as a comment."
+}
+							</pre>
+
+	            <h4>Response <hr> </h4>
+							<pre>
+{
+  "message": "Comment has been added!",
+  "status_code": 200
+}
+							</pre>
+
+	          </div>
+	        </div>
+	      </div>
+
+				<div class="card">
+	        <div class="card-header" id="heading11">
+	          <h5 class="mb-0">
+							<div class="d-inline p-2 bg-success text-white">GET</div>
+	            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapseThree">
+	              /post/{post_id}/comments
+	            </button>
+	          </h5>
+	        </div>
+	        <div id="collapse11" class="collapse" aria-labelledby="heading11" data-parent="#accordion">
+	          <div class="card-body">
+							<p>
+	              This returns an object of all the comments of the given POST ID.
+	            </p>
+
+							<h4>Request <hr> </h4>
+							<p>
+								The <i> <b>post_id:</b> </i> passed in the url.
+							</p>
+
+	            <h4>
+	              Response
+	              <hr>
+	            </h4>
+								<pre>
+{
+  "status_code": 200,
+  "data": [
+      {
+          "id": 28,
+          "user_id": "13",
+          "post_id": "34",
+          "comment": "This is a comment for th post 34. its posted by osagie and his default account.",
+          "created_at": "2018-02-27 13:31:24",
+          "updated_at": "2018-02-27 13:31:24",
+          "user": {
+              "id": 13,
+              "name": null,
+              "email": "f.falana@dreammesh.ng",
+              "username": "fred_falz",
+              "gender": null,
+              "callup_no": "NYSC/BCU/2011/102471",
+              "profile_pic": "default.jpg",
+              "state_id_val": null,
+              "phone_no": null,
+              "short_bio": null,
+              "created_at": "2018-02-26 14:21:30",
+              "updated_at": "2018-02-26 14:21:30"
+          }
+      }
+  ]
+}
+								</pre>
+
+	          </div>
+	        </div>
+	      </div>
+
+				<div class="card">
+	        <div class="card-header" id="heading12">
+	          <h5 class="mb-0">
+	            <div class="d-inline p-2 bg-primary text-white">POST</div>
+	            <button class="btn btn-link" data-toggle="collapse" data-target="#collapse12" aria-expanded="true" aria-controls="collapseOne">
+	              /update-info
+	            </button>
+	          </h5>
+	        </div>
+
+	        <div id="collapse12" class="collapse" aria-labelledby="heading12" data-parent="#accordion">
+	          <div class="card-body">
+	            <p>
+	              This updates the information of the current user.
+	            </p>
+
+
+	            <h4>Request <hr> </h4>
+							<pre>
+{
+	"name": "Head Fred",
+  "phone_no": "011245718901",
+  "state_id_val":"2",
+  "gender" : "male",
+  "short_bio" : "Software engineer with drive to do more everytime am given an opportunity."
+}
+							</pre>
+
+	            <h4>Response <hr> </h4>
+							<pre>
+{
+  "message": "successful!!",
+  "status_code": 200
+}
+							</pre>
 
 	          </div>
 	        </div>
